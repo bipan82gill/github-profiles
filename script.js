@@ -1,29 +1,46 @@
-const APIURL= 'https://api.github.com/users/'
+const APIURL= 'https://api.github.com/users/';
 
-async function getUser(){
+const main = document.getElementById("main");
+const form = document.getElementById("form");
+const search = document.getElementById("search");
+getUser('bipan82gill');
+async function getUser(user){
     const resp = await fetch(APIURL + user);
     const respData = await resp.json();
 
     console.log(respData);
     createUserCard(respData);
+
+  
 }
-function createUserCard(){
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.innerHTML = `
-    <div>
-        <img src="${user.avatar_url}" alt="${user.name}">
+function createUserCard(user){
+    
+   const cardHTML=
+    `<div class ="card">
+    <div class ="image-container">
+        <img class ="avatar" src="${user.avatar_url}" alt="${user.name}">
     </div>
-    <div>
+    <div class ="user-info">
         <h2>
         ${user.name}
         </h2>
         <p>${user.bio}</p>
-        <ul>
-        <li> ${user.followers}</li>
-        <li> ${user.following}</li>
-        <li> ${user.public_repos}</li>
+        <ul class ="info">
+        <li> ${user.followers}<strong>Followers</strong></li>
+        <li> ${user.following}<strong>Followings</strong></li>
+        <li> ${user.public_repos}<strong>Repos</strong></li>
         </ul>
     </div>
+    </div>
     `
+    main.innerHTML = cardHTML;
 }
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const user = search.value;
+    if(user){
+        getUser(user);
+        search.value= "";
+    }
+})
