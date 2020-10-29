@@ -32,7 +32,7 @@ input:focus{
     outline: none;
 }
 .card{
-    background-color:#3b2066;
+    background-color:#a286cf;
     background-image:linear-gradient(315deg, #3b2066 0%,  #2e2a68 74%);
     display: flex;
     padding: 3rem;
@@ -41,11 +41,6 @@ input:focus{
      0 15px 40px rgba(0,0,0,0.1);
     border-radius: 20px;
 
-}
-.image-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .avatar{
     border: 10px solid #2a2a72;
@@ -76,4 +71,16 @@ input:focus{
 .user-info ul li strong{
     font-size: 0.9rem;
     margin-left: 0.5rem;
+}
+.repo{
+    background-color:  #19194b;
+    border-radius: 5px;
+
+    display:inline-block;
+    color:white;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none; 
 }
